@@ -2,6 +2,7 @@ package me.yoon.blogproject.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import me.yoon.blogproject.config.error.exception.ArticleNotFoundException;
 import me.yoon.blogproject.domain.Article;
 import me.yoon.blogproject.dto.AddArticleRequest;
 import me.yoon.blogproject.dto.UpdateArticleRequest;
@@ -27,7 +28,7 @@ public class BlogService {
 
     public Article findById(long id) {
         return blogRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found : " + id));
+                .orElseThrow(ArticleNotFoundException::new);
     }
 
     public void delete(long id) {

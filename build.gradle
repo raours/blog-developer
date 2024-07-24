@@ -33,8 +33,14 @@ dependencies {
     //OAuth2를 사용하기 위한 스타터 추가
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     implementation 'mysql:mysql-connector-java'
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar{
+    enabled = false
 }
